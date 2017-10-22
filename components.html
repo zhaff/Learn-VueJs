@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learn - VueJs</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="!$data">
+            <div class="loading-bar">
+                <i class="fa fa-spinner fa-spin fa-2x" aria-hidden="true"></i>
+                <br> Loading.....
+            </div>
+        </div>
+        <div v-cloak>
+            <div class="container">
+                <div class="row">
+                    <h1>Components</h1>
+
+                    <my-component></my-component>
+
+                    <my-component2></my-component2>
+
+                    <h2>camelCase vs kebab-case</h2>
+
+                    <child my-message="hello!"></child>
+
+                    <h2>Dynamic Props</h2>
+
+                    <div>
+                        <input type="text" v-model="parentMsg">
+                        <br>
+                        <child v-bind:my-message="parentMsg"></child>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script> -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/components.js"></script>
+</body>
+
+</html>

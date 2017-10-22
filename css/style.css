@@ -1,0 +1,19 @@
+[v-cloak] {
+    display: none;
+}
+
+.loading-bar {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 150px;
+    height: 100px;
+    border: 1px solid gray;
+    text-align: center;
+    margin: auto;
+    padding-top: 23px;
+    background-color: white;
+}

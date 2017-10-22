@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learn - VueJs</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="!$data">
+            <div class="loading-bar">
+                <i class="fa fa-spinner fa-spin fa-2x" aria-hidden="true"></i>
+                <br> Loading.....
+            </div>
+        </div>
+        <div v-cloak>
+            <div class="container">
+                <div class="row">
+                    <h1>Form Input Bindings</h1>
+                    <h2>text input</h2>
+                    <input v-model="message" placeholder="edit me" type="text">
+                    <p>
+                        Message is {{ message }}
+                    </p>
+
+                    <h2>Textarea</h2>
+                    <br>
+                    <textarea v-model="longmessage" cols="30" rows="10"></textarea>
+                    <br>
+                    <span>Multiline message is:</span>
+                    <p style="white-space: pre-line;">
+                        {{ longmessage }}
+                    </p>
+
+                    <h2>Checkbox</h2>
+                    <br>
+                    <div>
+                        <input type="checkbox" id="checkbox" v-model="checked">
+                        <label for="checkbox">
+                            {{ checked }}
+                        </label>
+                    </div>
+
+                    <h2>Multiple checkboxes</h2>
+
+                    <div>
+                        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                        <label for="jack">Jack</label>
+                        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                        <label for="jack">John</label>
+                        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                        <label for="jack">Mike</label>
+                        <br>
+                        <span>Checked Names: {{ checkedNames }}</span>
+                    </div>
+
+                    <h2>Radio</h2>
+
+                    <input type="radio" id="one" value="One" v-model="picked">
+                    <label for="one">One</label>
+                    <br>
+                    <input type="radio" id="two" value="Two" v-model="picked">
+                    <label for="two">Two</label>
+                    <br>
+                    <span>Picked: {{ picked }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script> -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/form-input-handling.js"></script>
+</body>
+
+</html>

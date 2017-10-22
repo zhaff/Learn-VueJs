@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learn - VueJs</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="!$data">
+            <div class="loading-bar">
+                <i class="fa fa-spinner fa-spin fa-2x" aria-hidden="true"></i>
+                <br> Loading.....
+            </div>
+        </div>
+        <div v-cloak>
+            <div class="container">
+                <div class="row">
+                    <h1>Conditional Rendering</h1>
+
+                    <h2>v-if - Conditional grpup</h2>
+                    <h2 v-if="ok">Ok</h2>
+                    <h2 v-else>No</h2>
+
+                    <template v-if="ok">
+                        <h2>Title</h2>
+                        <p>Paragraph 1</p>
+                        <p>Paragraph 2</p>
+                    </template>
+
+                    <h2>v-else</h2>
+                    <div v-once>
+                        <div v-if="Math.random() > 0.5">
+                            Now you see me
+                        </div>
+                        <div v-else-if="Math.random() > 1">
+                            Number is more than 1
+                        </div>
+                        <div v-else>
+                            Now you don't
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <h2>Controlling reusable elements with key</h2>
+                    <div>
+                        <template v-if="loginType === 'username'">
+                            <label>Username</label>
+                            <input type="text" placeholder="Enter your name" key="username-input">
+                        </template>
+                        <template v-else>
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email address" key="email-input">
+                        </template>
+                        <button @click="toggle()">Toggle LoginType</button>
+                    </div>
+
+                    <h2>v-show</h2>
+
+                    <h2 v-show="ok">Hello!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/app12.js"></script>
+</body>
+
+</html>

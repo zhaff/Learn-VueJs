@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learn - VueJs</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="!$data">
+            <div class="loading-bar">
+                <i class="fa fa-spinner fa-spin fa-2x" aria-hidden="true"></i>
+                <br> Loading.....
+            </div>
+        </div>
+        <div v-cloak>
+            <div class="container">
+                <div class="row">
+                    <h1>List Rendering</h1>
+
+                    <div class="app-wrap">
+                        <h2>v-for</h2>
+                        <ul>
+                            <li v-for="item in items">
+                                {{ item.message }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li v-for="(item, index) in items">
+                                {{ parentMessage }} - {{ index+1 }}. {{ item.message }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li v-for="(item, index) of items">
+                                {{ parentMessage }} - {{ index+1 }}. {{ item.message }}
+                            </li>
+                        </ul>
+
+                        <h2>v-for with an Object</h2>
+                        <ul>
+                            <li v-for="value in object">
+                                {{ value }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li v-for="(value, key) in object">
+                                {{ key }}: {{ value }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li v-for="(value, key, index) in object">
+                                {{ index }}. {{ key }}: {{ value }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li v-for="staff in staffs" :key="staff.id" @click="viewStaff(staff.id)">
+                                {{ staff.id }}. {{ staff.name }}
+                            </li>
+                        </ul>
+
+                        <h2>Array Change Detection</h2>
+
+                        <button @click="changeArray">Change staffs array</button>
+                        <button @click="addAge">Add new Object property (email)</button>
+
+                        <h2>Displaying Filtered/Sorted Results</h2>
+
+                        <h3>Using computed</h3>
+                        <ul>
+                            <li v-for="n in evenNumbers">
+                                {{ n }}
+                            </li>
+                        </ul>
+                        <h3>Using methods</h3>
+                        <ul>
+                            <li v-for="n in even(numbers)">
+                                {{ n }}
+                            </li>
+                        </ul>
+
+                        <h2>v-for with a Range</h2>
+
+                        <div>
+                            <span v-for="n in 10">
+                                {{ n }}
+                            </span>
+                        </div>
+
+                        <h2>v-for on a template </h2>
+                        <p>- v-for with v-if</p>
+                        <div class="row">
+                            <div v-if="isGotActiveItems">
+                                <template v-for="item in items" v-if="item.active">
+                                    <div class="col-sm-4 col-md-3">
+                                        <div class="thumbnail">
+                                            <img class="img-responsive" src="http://via.placeholder.com/300x200" alt="">
+                                            <div class="caption">
+                                                <h3>
+                                                    {{ item.message }}
+                                                </h3>
+                                                <p>
+                                                    <a href="#" class="btn btn-primary" role="button">Edit</a>
+                                                    <a href="#" class="btn btn-default" role="button">Delete</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                            <p v-else>
+                                No active item found
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script> -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/app13.js"></script>
+</body>
+
+</html>
